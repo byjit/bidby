@@ -32,7 +32,7 @@ export default function App() {
 
             {/* Subheading */}
             <p className="text-lg sm:text-xl max-w-md leading-relaxed animate-reveal animate-reveal-delay-2">
-              The easiest way to unlock true price and go from 0 to $$. We just put you in contact with the highest bidders - No middleman. Just you and your buyers.
+              The easiest way to unlock true price and go from 0 to $. We just put you in contact with the highest bidders - No middleman. Just you and your buyers.
             </p>
           </div>
 
