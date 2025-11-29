@@ -1,49 +1,35 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Logo } from "../logo";
-import githubIcon from "@/assets/github.svg";
 
 export function FloatingHeader() {
-  const links = [
-    {
-      label: "Why Gentic?",
-      href: "#about",
-    },
+  const links: { label: string; href: string }[] = [
+
   ];
 
   return (
     <header
       className={cn(
-        "sticky top-3 sm:top-5 z-50",
-        "mx-auto w-full max-w-2xl rounded-lg border shadow",
-        "bg-background/95 supports-backdrop-filter:bg-background/80 backdrop-blur-lg",
+        "sticky top-0 z-50",
+        "w-full",
+        "bg-background border-b-2 border-foreground",
       )}
     >
-      <nav className="mx-auto flex items-center justify-between p-1.5 sm:p-2">
-        <div className="hover:bg-accent flex cursor-pointer items-center gap-1 sm:gap-2 rounded-md px-1.5 sm:px-2 py-1 duration-100">
-          <Logo showName logoSize="w-6 h-6 sm:w-8 sm:h-8" />
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+        <div className="flex cursor-pointer items-center">
+          <Logo showName logoSize="w-4 h-4 sm:w-5 sm:h-5" />
         </div>
-        <div className="flex items-center gap-1 sm:gap-2">
-          <Button variant={'ghost'} size="icon" className="hidden md:flex rounded-full" asChild>
-            <a href="https://github.com/prasanjit101/Gentic-waitlist" target="_blank" rel="noopener noreferrer">
-              <img src={githubIcon} alt="GitHub" className="h-5 w-5" />
-            </a>
-          </Button>
-          <div className="items-center gap-0.5 sm:gap-1 hidden sm:flex">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="items-center gap-1 hidden sm:flex">
             {links.map((link) => (
               <a
                 key={link.href}
-                className={buttonVariants({ variant: "ghost", size: "sm" })}
+                className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "font-medium uppercase tracking-wide text-xs")}
                 href={link.href}
               >
-                <span className="text-xs sm:text-sm">{link.label}</span>
+                {link.label}
               </a>
             ))}
-          </div>
-          <div className="flex items-center gap-1 sm:gap-2">
-            <Button size="sm" className="text-xs sm:text-sm px-2.5 sm:px-4 py-1.5 sm:py-2" asChild>
-              <a href="#waitlist">Join Waitlist</a>
-            </Button>
           </div>
         </div>
       </nav>

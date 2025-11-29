@@ -1,81 +1,92 @@
 import { FloatingHeader } from "@/components/ui/floating-header";
-import { MeshGradient } from "@paper-design/shaders-react";
-import { Card } from "./components/ui/card";
 import { Logo } from "./components/logo";
 import TallyForm from "./components/tally-form";
 import HeroImage from "./components/hero-image";
-import { ItemCarousel } from "@/components/carousel";
-import { projects } from "./lib/projects";
-import { Badge } from "./components/ui/badge";
 
 export default function App() {
   return (
-    <div className="relative w-full max-w-2xl mx-auto px-3 sm:px-4" id="waitlist">
-      <MeshGradient
-        width="100%"
-        height="100%"
-        colors={["#e0eaff", "#241d9a", "#5e50f7cf", "#4e57d4"]}
-        distortion={0.8}
-        swirl={0.04}
-        grainMixer={0}
-        grainOverlay={0}
-        speed={0.32}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 0,
-          width: "100%",
-          height: "100%",
-        }}
-      />
+    <div className="relative w-full min-h-screen grain" id="waitlist">
       <FloatingHeader />
-      <div className="my-4 sm:my-8 w-full relative z-1 space-y-3 sm:space-y-4">
-        <Card className="flex flex-col p-4 sm:p-8 md:p-16">
-          <Badge variant={'outline'} className="text-xs sm:text-sm w-fit">For growing businesses with digital operations</Badge>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl max-w-lg p-2 leading-tight">
-            {/* The one-liner of the product */}
-            Describe your goal and turn it into automations.
-          </h1>
-          <p className="max-w-lg p-2 text-sm sm:text-base">
-            {/* Subheading */}
-            Gentic helps your business grow faster and operate more efficiently by providing an all-in-one platform that centralizes and automates AI-powered workflows—no code required. Reduce your dependency on multiple costly tools with one easy-to-use solution.
-          </p>
-          <TallyForm />
-          <HeroImage caption="in progress" />
-        </Card>
-        <Card className="flex flex-col p-4 sm:p-8 md:p-16" id="about">
-          <Logo showName />
-          <p className="max-w-lg text-justify text-sm sm:text-base">
-            {/* Explain why the product exists. structured as - the problem faced by a niche, the solution offered by the product */}
-            As a small business owner operating digitally, managing multiple tools and platforms to handle customer interactions, data management, and automation can be overwhelming and time-consuming. Gentic was created to address this challenge by providing an all-in-one platform that allows small businesses to easily create AI-driven automations without any coding knowledge. By simplifying the process of building and managing automations, Gentic empowers small businesses to enhance their operations, improve customer experiences, and ultimately grow faster in a competitive market.
-          </p>
-          <div className="space-y-2 mt-4">
-            <h3 className="font-semibold text-base sm:text-lg">Prasanjit Dutta</h3>
-            <p className="text-xs sm:text-sm">Founder, Gentic</p>
-          </div>
-          <div className="flex flex-col gap-3 py-4 sm:py-6">
-            <div className="text-sm sm:text-base">
-              Follow me on{" "}
-              <a
-                href="https://x.com/jit_infinity"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-blue-500"
-              >
-                X ( Formerly Twitter )
-              </a>
+
+      {/* Hero Section */}
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-16 pb-16 sm:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+          {/* Left Column - Content */}
+          <div className="lg:col-span-6 xl:col-span-5 flex flex-col gap-6 sm:gap-8">
+
+            {/* Live Badge */}
+            <div className="animate-reveal">
+              <span className="auction-badge">
+                <span className="w-2 h-2 bg-primary-foreground rounded-full animate-pulse"></span>
+                Coming Soon
+              </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-600">
-              © 2025 Gentic, All Rights Reserved
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight animate-reveal animate-reveal-delay-1">
+              Auction your{" "}
+              <span className="font-serif italic">digital</span>{" "}
+              <span className="highlight">assets</span>
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-lg sm:text-xl max-w-md leading-relaxed animate-reveal animate-reveal-delay-2">
+              The easiest way to unlock true price and go from 0 to $$. We just put you in contact with the highest bidders - No middleman. Just you and your buyers.
             </p>
           </div>
-        </Card>
-        <Card className="flex flex-col p-4 sm:p-8 md:p-16" id="projects">
-          <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Also check out</h2>
-          <ItemCarousel items={projects} />
-        </Card>
-      </div>
+
+          {/* Right Column - Visual */}
+          <div className="lg:col-span-6 xl:col-span-7 brutalist-card p-6 sm:p-8 animate-reveal animate-reveal-delay-3">
+            {/* Card Header */}
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                What you can sell
+              </span>
+              <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+            </div>
+
+            {/* Value Props */}
+            <div className="flex items-center flex-wrap gap-2 sm:gap-3 mb-8">
+              {["Services", "Code", "Art", "Domains"].map((item, index) => (
+                <span
+                  key={item}
+                  className="px-4 py-2 text-sm font-bold uppercase tracking-wide border-2 border-foreground bg-secondary hover:bg-accent hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                  style={{ animationDelay: `${400 + index * 50}ms` }}
+                >
+                  {item}
+                </span>
+              ))}
+              <span className="px-4 py-2 text-sm font-bold uppercase tracking-wide border-2 border-dashed border-muted-foreground text-muted-foreground hover:border-foreground hover:text-foreground transition-colors cursor-default">
+                + More
+              </span>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t-2 border-foreground mb-6"></div>
+
+            {/* Waitlist Section */}
+            <div>
+              <TallyForm />
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Marquee */}
+        <div className="mt-16 sm:mt-24 border-t-2 border-b-2 border-foreground py-4 overflow-hidden">
+          <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex items-center gap-8 mr-8">
+                {["SELL ANYTHING", "•", "UNLOCK PROFITS", "•", "FIND BUYERS", "•", "CLOSE DEALS", "•"].map((text, j) => (
+                  <span key={j} className="text-xl sm:text-2xl font-bold uppercase tracking-widest">
+                    {text}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
