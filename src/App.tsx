@@ -1,7 +1,5 @@
 import { FloatingHeader } from "@/components/ui/floating-header";
-import { Logo } from "./components/logo";
 import TallyForm from "./components/tally-form";
-import HeroImage from "./components/hero-image";
 
 export default function App() {
   return (
@@ -77,7 +75,7 @@ export default function App() {
           <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-8 mr-8">
-                {["SELL ANYTHING", "•", "UNLOCK PROFITS", "•", "FIND BUYERS", "•", "CLOSE DEALS", "•"].map((text, j) => (
+                {["SELL DIGITAL ITEMS", "•", "UNLOCK PROFITS", "•", "FIND BUYERS", "•", "CLOSE DEALS", "•"].map((text, j) => (
                   <span key={j} className="text-xl sm:text-2xl font-bold uppercase tracking-widest">
                     {text}
                   </span>
