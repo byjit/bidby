@@ -30,7 +30,7 @@ export default function App() {
 
             {/* Subheading */}
             <p className="text-lg sm:text-xl max-w-md leading-relaxed animate-reveal animate-reveal-delay-2">
-              The easiest way to unlock true price and go from 0 to $. We just put you in contact with the highest bidders - No middleman. Just you and your buyers.
+              The easiest way to unlock best price and go from 0 to $. We just put you in contact with the highest bidders - No middleman. Just you and your buyers.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function App() {
 
             {/* Value Props */}
             <div className="flex items-center flex-wrap gap-2 sm:gap-3 mb-8">
-              {["Services", "Code", "Art", "Domains"].map((item, index) => (
+              {["Services", "Usernames", "Art", "Domains"].map((item, index) => (
                 <span
                   key={item}
                   className="px-4 py-2 text-sm font-bold uppercase tracking-wide border-2 border-foreground bg-secondary hover:bg-accent hover:-translate-y-0.5 transition-all duration-200 cursor-default"
